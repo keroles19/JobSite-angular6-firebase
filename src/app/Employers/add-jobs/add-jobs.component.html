@@ -1,0 +1,88 @@
+<div class="container-fuluid">
+    <div class="row Add-jobs justify-content-md-center">
+        <div class="col-lg-4 col-12 align-self-center" style="text-align:center;">
+            <h4> Add Job </h4>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row justify-content-sm-center">
+        <div class="col-lg-8 col-11 main-info emp">
+
+            <form #frm="ngForm" (ngSubmit)="onSubmit(frm)">
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">Name of job</label>
+                    <div class="col-sm-10">
+
+                        <input name="jobName" #jobName="ngModel" [(ngModel)]='job.jobName' required max="20" type="text" class="form-control {{(jobName.touched || jobName.dirty) ? (jobName.invalid ? 'is-invalid' : 'is-valid' ): ''}} "
+                            id="inputEmail3" placeholder="name of job">
+                        <div class="invalid-feedback">
+                            <span *ngIf="jobName.errors?.required">
+                                Please provide Name of job
+                            </span>
+                            <span *ngIf="jobName.errors?.max">
+                                more than '20' characters
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="employerR" class="col-sm-2 col-form-label">Employees R</label>
+                    <div class="col-sm-10">
+                        <input name="employeeR" #employeeR="ngModel" [(ngModel)]="job.employeeR" required type="number" pattern="[1-9][0-9]*"
+                         class="form-control {{(employeeR.touched || employeeR.dirty) ? (employeeR.invalid ? 'is-invalid' : 'is-valid' ): ''}}    "
+                            placeholder="number of employees required">
+                        <div class="invalid-feedback">
+                            <span *ngIf="employeeR.errors?.required">
+                                Please provide number of employees eequired
+                            </span>
+                            <span *ngIf="employeeR.errors?.pattern">
+                                * Enter correct number
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-2 col-form-label">Category</label>
+                    <div class="col-sm-10">
+                        <select name="catig" [(ngModel)]="job.catig" #catig="ngModel"  required  class="custom-select {{(catig.touched || catig.dirty) ? ((catig.invalid) ? 'is-invalid' : 'is-valid' ): ''}}">
+                           <option selected value="" >select job Category </option>
+                           <option *ngFor="let item of fileds" value="{{item.name}}">{{item.name}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="textareajobdetails" class="col-sm-2 col-form-label">Job details and Requirements</label>
+                    <div class="col-sm-10">
+                        <textarea name="jobDetails" #jobDetails="ngModel" [(ngModel)]="job.jobDetails" required minlength="20" maxlength="400" cols="30" rows="10"
+                         class="form-control {{(jobDetails.touched || jobDetails.dirty) ? (jobDetails.invalid ? 'is-invalid' : 'is-valid' ): ''}}"></textarea>
+                         <div class="invalid-feedback">
+                            <span *ngIf="jobDetails.errors?.required">
+                                Please provide deatails and equirements for this job
+                            </span>
+                            <span *ngIf="jobDetails.errors?.minlength">
+                                 less than 20 characters
+                            </span>
+                            <span *ngIf="jobDetails.errors?.maxlength">
+                                 more than 400 characters
+                            </span>
+                        </div>
+                    
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <button [disabled]="frm.invalid" type="submit" id="Add" class="btn btn-block btn-primary">ADD</button>
+                    </div>
+                </div>
+            </form>
+
+            <!--Requirements-->
+        </div>
+    </div>
+</div>

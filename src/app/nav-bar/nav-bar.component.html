@@ -1,0 +1,165 @@
+<!-- start navbar -->
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" [routerLink]="['/Home']">HR</a>
+    <button class="navbar-toggler change_board" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" *ngIf="isLogined">
+          <a class="nav-link"   [routerLink]="['/myskill']" routerLinkActive="router-link-active" >My Skill<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item" *ngIf="isLogined==true">
+          <a class="nav-link"  [routerLink]="['/skills']">All Skill</a>
+        </li>
+        <li class="nav-item" *ngIf="isLogined==false">
+          <a class="nav-link"  [routerLink]="['/register']">Register</a>
+        </li>
+        <li class="nav-item" *ngIf="isLogined==false">
+            <a class="nav-link"  [routerLink]="['/login']">Login</a>
+          </li>
+      </ul>
+      <div class="dropdown" *ngIf="isLogined==true">
+        <a  class=" dropdown-toggle"   role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         my Account
+        </a>
+        <div class="dropdown-menu setting" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item"  [routerLink]="['/Add-Skill']">Add Skill</a>
+          <a class="dropdown-item"  (click)=Logout()>Logout</a>
+        </div>
+      </div>
+    </div>
+  </nav> -->
+
+<!-- end navbar-->
+
+<!-- start navbar -->
+<div class="container-fuluid">
+    <nav class="navbar navbar-expand-xl navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" [routerLink]="['/Home']"><img src="../../favicon.ico" width="40" height="35" title="Application Name"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <!-- <li class="nav-item dropdown">
+                    <button class="btn btn-danger btn-md dropdown-toggle by" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                        Browes by Countries
+                    </button>
+
+                    <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+                        <a  *ngFor="let item of country" class="dropdown-item btn btn-md" [routerLink]="['/seeker/job/'+item.id]">{{item.name}}</a>
+                        
+                    </div>
+        
+                </li> -->
+                <li class="nav-item dropdown" *ngIf="(isLogined === null||isLogined ==='Seeker')">
+                    <button    class="btn btn-danger btn-md dropdown-toggle by" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Browse by Fields</button>
+
+                    <div class="dropdown-menu Dropdown-menu-fields"  aria-labelledby="navbarDropdown">
+                        <a *ngFor="let item of fields" class="dropdown-item" [routerLink]="['Seeker/jobFields/'+item.name]">{{item.name}}</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown" *ngIf="(isLogined === 'Employer')">
+                        <button    class="btn btn-danger btn-md  by"  role="button" [routerLink]="['Employer/Add-Job']" >
+                        Add Job
+                        </button>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <ng-container *ngIf="isLogined===null; else elseTemplate">
+                      
+                <li class="nav-item"  class="Login ">
+                        <a [routerLink]="['/login']">
+                            <i class="fas fa-sign-in-alt fa-1x"></i>
+                            Log In ?</a>
+    
+                    </li>
+                    <li class="nav-item" >
+                        <a [routerLink]="['Seeker/register']" class="btn btn-warning btn-md ">
+                            <i class="fas fa-user-plus fa-1x"></i>
+                            Register as a seeker
+                        </a>
+    
+                    </li>
+                    <li class="nav-item">
+                        <a [routerLink]="['Employer/register']" class="btn btn-success btn-md ">
+                            <i class="fas fa-user-plus fa-1x"></i>
+                            Register as a Company
+                        </a>
+    
+                    </li>
+                </ng-container>
+                <ng-template #elseTemplate>
+                        <li class="nav-item">
+                                <div class="dropdown">
+                                    <span id="btn navbardropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                        <!-- <ng-container *ngIf="imageUrl=== null  else elseTemplate">
+                                            <div class="lds-css ng-scope">
+                                                <div style="width:100%;height:100%" class="lds-flickr">
+                                                    <div></div>
+                                                    <div></div>
+                                                    <div></div>
+                                                </div>
+                                            </div>
+                                        </ng-container>
+                                        <ng-template #elseTemplate>
+                                            <img [src]="imageUrl" alt="image profile" id="image" />
+                                        </ng-template> -->
+                                        <div *ngIf="imageUrl==null"   style="border-radius: 50%; width:55px; height:52px;    border: 2px solid #a5a09d; cursor: pointer;"></div>
+                                        <img *ngIf="imageUrl!=null"  [src]="imageUrl" width="55" height="52" style="border-radius: 50%; border: 2px solid #a5a09d; cursor: pointer;">
+                                    </span>
+                                    <div class="dropdown-menu dropdown-menu-profile" aria-labelledby="navbarDropdown">
+                                        <ng-container *ngIf="isLogined==='Seeker'; else elseTemplate">
+                                                <a class="btn dropdown-item" [routerLink]="['/Seeker']">
+                                                    <i class="fas fa-list-alt fa-1x"></i>
+                                                    All Jobs
+                                                </a>
+                                                <a class="btn dropdown-item" [routerLink]="['/Seeker/Jobs']">
+                                                    <i class="fas fa-toolbox fa-1x"></i>
+                                                    My Jobs
+                                                </a>
+                                                <a class="btn dropdown-item" [routerLink]="['/Seeker/EditeProfile']">
+                                                    <i class="fas fa-toolbox fa-1x"></i>
+                                                    Edite Profile
+                                                </a>
+                                        </ng-container>
+                                        <ng-template #elseTemplate>
+                                                <a class="btn dropdown-item" [routerLink]="['/Employer/employees']">
+                                                    <i class="fas fa-list-alt fa-1x"></i>
+                                                   My Employees
+                                                </a>
+                                                <a class="btn dropdown-item" [routerLink]="['/Employer']">
+                                                    <i class="fas fa-toolbox fa-1x"></i>
+                                                    My Jobs
+                                                </a>
+                                                <a class="btn dropdown-item" [routerLink]="['/Employer/EditeProfile']">
+                                                    <i class="fas fa-toolbox fa-1x"></i>
+                                                    Edite Profile
+                                                </a>
+
+                                        </ng-template>
+                                        <a class="btn dropdown-item" (click)=Logout()>
+                                            <i class="fas fa-sign-out-alt fa-1x"></i>
+                                            Log off
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                </ng-template>
+              
+           
+            </ul>
+
+
+
+        </div>
+
+    </nav>
+    <!-- end navbar -->

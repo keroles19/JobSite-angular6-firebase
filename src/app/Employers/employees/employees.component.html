@@ -1,0 +1,42 @@
+ <ng-container *ngIf="jobs.length > 0 ; else elseTemplate">
+    <main role="main" class="container" *ngFor="let item of jobs" >
+      <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded shadow-sm header">
+        <div class="lh-100">
+          <h6 class="mb-0 text-white lh-100"> Jobs name  :- &nbsp;  {{item.jobName}}</h6>
+          <small>number of users :- &nbsp; {{evilResponseProps.length}}</small>
+        </div>
+      </div>
+      <div class="my-3 p-3 bg-white rounded shadow-sm">
+        <h6 class="border-bottom border-gray pb-2 mb-0">all users who Apply for the job</h6>
+        <div class="media text-muted pt-3" *ngFor="let i of evilResponseProps" >
+          <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray"   >
+      <!--
+      for(let i in evilResponseProps)
+      {
+        console.log(evilResponseProps[i].seekerName);
+        i ====== > seeker id
+      } -->
+            <strong class="d-block text-gray-dark"># {{i}}</strong> 
+            <a [routerLink]="['/Employer/UserDetails/',i]">show CV</a>  
+          </p>
+        </div>
+      </div>
+    </main>
+   </ng-container>
+   <ng-template #elseTemplate>
+    <ng-container *ngIf="status==true; else elseTemplate2">
+        <div class="row justify-content-center jobs-row">
+            <div class="my-job col-md-5 col-10 justify-content-center">
+              <img src="../assets/images/user-demo.png"> <br>
+              <small>You don't have  any jobs yet  A list of your jobs  will appear here <a [routerLink]="['/Employer/Add-Job']">Create new job</a> </small>
+            </div>
+          </div>
+    </ng-container>
+    <ng-template #elseTemplate2>
+        <div class="lds-ripple"><div></div><div></div></div>
+        
+    </ng-template>
+    
+   </ng-template> 
+   
+   

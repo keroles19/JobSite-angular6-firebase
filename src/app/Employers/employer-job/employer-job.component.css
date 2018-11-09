@@ -1,0 +1,207 @@
+
+
+
+
+
+
+
+
+.headerJobs{
+    border: 6px double #215386;
+   height: 180px;
+   margin-top: 100px;
+   background-image:url('../../../assets/images/4k-wallpaper-architecture-background-1308624.jpg');
+   background-size: cover;
+    text-align: center;
+   color: white;
+   padding:25px;
+}
+.items{
+   margin-top: 148px;
+   margin-left:6%;
+}
+.jobs-items
+{
+    background-color: #ffffffdb;
+    border: 2px solid #bcbec052;
+    margin: 21px;
+    margin-left: 4%;
+  
+}
+.jobs-items .content span {
+    color: #7d7c7c;
+   font-weight: bolder;
+}
+.header-jobs{
+   margin-top: 7px;
+   font-size: 20px;
+}
+.header-jobs span{
+    padding-left:16px; 
+    color: #0c1da0;
+    font-weight: bold;
+}
+.header-jobs a {
+   display: inline;
+}
+.header-jobs img {
+     margin:5px 3px 0 0;
+     float: right; 
+    border-radius: 4px;
+}
+   
+.jobs-items .content
+{
+   margin-top: 15px;
+       color: #a09e9e;
+}
+
+.jobs-items .content .footer p {
+   display: inline-block;
+}
+.jobs-items .content .footer .about {
+   float: right;
+}
+.jobs-items .content button {
+   margin-bottom: 10px
+}
+
+
+
+
+.jobs
+{
+    margin:80px 0 0 30px;
+    
+}
+
+
+
+.my-job {
+    background-color: #c1c2c330;
+    height: 247px;
+    box-shadow: -3px -3px 10px #9ca0a59c, 5px 2px 12px #9ca0a59c;
+    animation: moving 3s;
+    animation-fill-mode: forwards;
+  }
+
+  .my-job img {
+
+    position: relative;
+    left: 43%;
+    animation: contentMoving 3s;
+    animation-fill-mode: forwards;
+
+  }
+
+  .my-job small {
+    position: relative;
+    top: 23%;
+    color: #0e569ea8;
+    font-family: -webkit-body;
+    font-size: 16px;
+    animation: smallMoving 3s;
+    animation-fill-mode: forwards;
+
+  }
+
+  @keyframes smallMoving {
+
+0% {
+  top: 0%
+}
+
+20%,
+60%,
+100% {
+  top: 23%
+}
+
+40%,
+80% {
+  top: 15%;
+}
+}
+
+  @keyframes contentMoving {
+
+    0% {
+      top: 0%
+    }
+
+    20%,
+    60%,
+    100% {
+      top: 12%
+    }
+
+    40%,
+    80% {
+      top: 7%;
+    }
+  }
+
+
+  @keyframes moving {
+
+    0% {
+      margin-top: 0px;
+    }
+
+    20% {
+      margin-top: 80px;
+    }
+
+    40% {
+      margin-top: 30px;
+    }
+
+    60% {
+      margin-top: 70px;
+    }
+
+    80% {
+      margin-top: 40px;
+    }
+
+    100% {
+      margin-top: 60px;
+    }
+  }
+
+  
+
+.lds-ripple {
+  display: block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+  margin: auto auto;
+  margin-top: 273px;
+  }
+  .lds-ripple div {
+  position: absolute;
+  border: 4px solid rgb(255, 0, 0);
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  }
+  .lds-ripple div:nth-child(2) {
+  animation-delay: -0.5s;
+  }
+  @keyframes lds-ripple {
+  0% {
+    top: 28px;
+    left: 28px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: -1px;
+    left: -1px;
+    width: 58px;
+    height: 58px;
+    opacity: 0;
+  }
+  }

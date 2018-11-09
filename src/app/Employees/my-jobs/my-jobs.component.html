@@ -1,0 +1,39 @@
+<ng-container *ngIf="jobs.length > 0 ; else elseTemplate">
+  <main role="main" class="container"  >
+    <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded shadow-sm header">
+      <div class="lh-100">
+        <h6 class="mb-0 text-white lh-100"> your jobs</h6>
+        <small>number of users :- &nbsp; <span style="color:red;"> {{jobs.length}} </span> }</small>
+      </div>
+    </div>
+    <div class="my-3 p-3 bg-white rounded shadow-sm">
+      <div class="media text-muted pt-3" *ngFor="let item of jobs">
+        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+          <strong class="d-block text-gray-dark">name of job :&nbsp; {{item.jobName}}</strong> 
+          <strong class="d-block text-gray-dark" >job Details:</strong>
+          {{item.jobDetails}} 
+        </p>
+      </div>
+    </div>
+
+  </main>
+ </ng-container>
+ <ng-template #elseTemplate>
+  <ng-container *ngIf="status==true; else elseTemplate2">
+      <div class="row justify-content-center jobs-row">
+          <div class="my-job col-md-5 col-10 justify-content-center">
+            <img src="../assets/images/user-demo.png"> <br>
+            <small>You did not apply for any jobs A list of all the jobs you apply for will appear here <a [routerLink]="['/Employer/Add-Job']">go to All of job</a> </small>
+          </div>
+        </div>
+  </ng-container>
+  <ng-template #elseTemplate2>
+      <div class="lds-ripple"><div></div><div></div></div>
+      
+  </ng-template>
+  
+ </ng-template> 
+ 
+ 
+
+

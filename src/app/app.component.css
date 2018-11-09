@@ -1,0 +1,17 @@
+
+.flash{
+   /*  #f12b3e */
+    background-color: #19212bd7;
+    position: absolute;
+    top: 15%;
+    left: 1%;
+    max-width: 400px;
+    min-width: 300px;
+    border: none;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    border-radius: .25rem;
+    color: #dcf30cd8;
+    text-align: center;
+}
+

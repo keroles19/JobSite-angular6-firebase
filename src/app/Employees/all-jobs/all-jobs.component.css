@@ -1,0 +1,304 @@
+.element-animation{
+  animation: animationFrames ease 2s;
+  animation-iteration-count: infinite;
+  transform-origin: 50% 50%;
+  animation-fill-mode:forwards; /*when the spec is finished*/
+  -webkit-animation: animationFrames ease 2s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-transform-origin: 50% 50%;
+  -webkit-animation-fill-mode:forwards; /*Chrome 16+, Safari 4+*/ 
+  -moz-animation: animationFrames ease 2s;
+  -moz-animation-iteration-count: infinite;
+  -moz-transform-origin: 50% 50%;
+  -moz-animation-fill-mode:forwards; /*FF 5+*/
+  -o-animation: animationFrames ease 2s;
+  -o-animation-iteration-count: infinite;
+  -o-transform-origin: 50% 50%;
+  -o-animation-fill-mode:forwards; /*Not implemented yet*/
+  -ms-animation: animationFrames ease 2s;
+  -ms-animation-iteration-count: infinite;
+  -ms-transform-origin: 50% 50%;
+  -ms-animation-fill-mode:forwards; /*IE 10+*/
+}
+
+@keyframes animationFrames{
+  0% {
+    transform:  rotate(0deg) ;
+  }
+  20% {
+    transform:  rotate(15deg) ;
+  }
+  40% {
+    transform:  rotate(-10deg) ;
+  }
+  60% {
+    transform:  rotate(5deg) ;
+  }
+  80% {
+    transform:  rotate(-5deg) ;
+  }
+  100% {
+    transform:  rotate(0deg) ;
+  }
+}
+
+@-moz-keyframes animationFrames{
+  0% {
+    -moz-transform:  rotate(0deg) ;
+  }
+  20% {
+    -moz-transform:  rotate(15deg) ;
+  }
+  40% {
+    -moz-transform:  rotate(-10deg) ;
+  }
+  60% {
+    -moz-transform:  rotate(5deg) ;
+  }
+  80% {
+    -moz-transform:  rotate(-5deg) ;
+  }
+  100% {
+    -moz-transform:  rotate(0deg) ;
+  }
+}
+
+@-webkit-keyframes animationFrames {
+  0% {
+    -webkit-transform:  rotate(0deg) ;
+  }
+  20% {
+    -webkit-transform:  rotate(15deg) ;
+  }
+  40% {
+    -webkit-transform:  rotate(-10deg) ;
+  }
+  60% {
+    -webkit-transform:  rotate(5deg) ;
+  }
+  80% {
+    -webkit-transform:  rotate(-5deg) ;
+  }
+  100% {
+    -webkit-transform:  rotate(0deg) ;
+  }
+}
+
+@-o-keyframes animationFrames {
+  0% {
+    -o-transform:  rotate(0deg) ;
+  }
+  20% {
+    -o-transform:  rotate(15deg) ;
+  }
+  40% {
+    -o-transform:  rotate(-10deg) ;
+  }
+  60% {
+    -o-transform:  rotate(5deg) ;
+  }
+  80% {
+    -o-transform:  rotate(-5deg) ;
+  }
+  100% {
+    -o-transform:  rotate(0deg) ;
+  }
+}
+
+@-ms-keyframes animationFrames {
+  0% {
+    -ms-transform:  rotate(0deg) ;
+  }
+  20% {
+    -ms-transform:  rotate(15deg) ;
+  }
+  40% {
+    -ms-transform:  rotate(-10deg) ;
+  }
+  60% {
+    -ms-transform:  rotate(5deg) ;
+  }
+  80% {
+    -ms-transform:  rotate(-5deg) ;
+  }
+  100% {
+    -ms-transform:  rotate(0deg) ;
+  }
+}
+ .card{
+
+  background: #1470b1a6;
+  width: 87px;
+  height: 83px;
+  margin: 28px auto;
+  margin-top: 378px;
+  border-radius: 12%;
+
+ }
+
+
+
+
+
+.headerJobs{
+    border: 6px double #215386;
+   height: 180px;
+   margin-top: 100px;
+   background-image:url('../../../assets/images/4k-wallpaper-architecture-background-1308624.jpg');
+   background-size: cover;
+    text-align: center;
+   color: white;
+   padding:25px;
+}
+.items{
+   margin-top: 148px;
+   margin-left:6%;
+}
+.jobs-items
+{
+    background-color: #ffffffdb;
+    border: 2px solid #bcbec052;
+    margin: 21px;
+    margin-left: 4%;
+  
+}
+.jobs-items .content span {
+    color: #7d7c7c;
+   font-weight: bolder;
+}
+.header-jobs{
+   margin-top: 7px;
+   font-size: 20px;
+}
+.header-jobs span{
+    padding-left:16px; 
+    color: #0c1da0;
+    font-weight: bold;
+}
+.header-jobs a {
+   display: inline;
+}
+.header-jobs img {
+     margin:5px 3px 0 0;
+     float: right; 
+    border-radius: 4px;
+}
+   
+.jobs-items .content
+{
+   margin-top: 15px;
+       color: #a09e9e;
+}
+
+.jobs-items .content .footer p {
+   display: inline-block;
+}
+.jobs-items .content .footer .about {
+   float: right;
+}
+.jobs-items .content a {
+   margin-bottom: 10px
+}
+
+
+
+
+.jobs
+{
+    margin:80px 0 0 30px;
+    
+}
+
+
+
+.my-job {
+    background-color: #c1c2c330;
+    height: 247px;
+    box-shadow: -3px -3px 10px #9ca0a59c, 5px 2px 12px #9ca0a59c;
+    animation: moving 3s;
+    animation-fill-mode: forwards;
+  }
+
+  .my-job img {
+
+    position: relative;
+    left: 43%;
+    animation: contentMoving 3s;
+    animation-fill-mode: forwards;
+
+  }
+
+  .my-job small {
+    position: relative;
+    top: 23%;
+    color: #0e569ea8;
+    font-family: -webkit-body;
+    font-size: 16px;
+    animation: smallMoving 3s;
+    animation-fill-mode: forwards;
+
+  }
+
+  @keyframes smallMoving {
+
+0% {
+  top: 0%
+}
+
+20%,
+60%,
+100% {
+  top: 23%
+}
+
+40%,
+80% {
+  top: 15%;
+}
+}
+
+  @keyframes contentMoving {
+
+    0% {
+      top: 0%
+    }
+
+    20%,
+    60%,
+    100% {
+      top: 12%
+    }
+
+    40%,
+    80% {
+      top: 7%;
+    }
+  }
+
+
+  @keyframes moving {
+
+    0% {
+      margin-top: 0px;
+    }
+
+    20% {
+      margin-top: 80px;
+    }
+
+    40% {
+      margin-top: 30px;
+    }
+
+    60% {
+      margin-top: 70px;
+    }
+
+    80% {
+      margin-top: 40px;
+    }
+
+    100% {
+      margin-top: 60px;
+    }
+  }

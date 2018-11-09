@@ -1,0 +1,226 @@
+<div class="container-fuluid">
+  <ng-container *ngIf="lenght > 0; else elseTemplate">
+    <div class="row register justify-content-md-center">
+      <div class="col-md-6 clo-7">
+        <p>Edite Profile</p>
+      </div>
+
+    </div>
+    <div class="container">
+      <div class="row justify-content-sm-center">
+        <div class="col-lg-9 col-11 main-info emp  ">
+          <form #frm="ngForm" (ngSubmit)="updateInfo(frm)" class="form-Emplyer">
+            <div class="form-group one">
+              <ng-container *ngIf="imageUrl===null; else elseTemplate">
+                <div class="lds-css ng-scope">
+                  <div style="width:100%;height:100%" class="lds-flickr">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                </div>
+              </ng-container>
+              <ng-template #elseTemplate>
+                <img [src]="imageUrl" alt="image profile" id="image" />
+              </ng-template>
+
+            </div>
+
+            <div class="inp-photo">
+              <label class="custom-file-upload two">
+                <input type="file" style="display:none" (change)="fileChanged($event.target.files)" accept=".png, .jpg, .jpeg"
+                  #logo="ngModel" ngModel name="logo" id="upload" />
+                <i class="fas fa-plus-circle fa-2x"></i>
+              </label>
+            </div>
+            <div class="save">
+              <span (click)="uploadPic()" id="save" class="btn badge badge-dark btn-save-pic">Save</span>
+            </div>
+            <!-- Login info      -->
+            <div class="row head">
+              <div class="head_emp_reg">
+                <span style="color:#eee;"><i class="fas fa-1x fa-lock"></i></span>
+              </div>
+              <p class="toggle-btn">
+                <button class="btn btn-primary btn-md" type="button" data-toggle="modal" data-target="#exampleModal"
+                  data-whatever="@getbootstrap">
+                  Change your password
+                </button>
+              </p>
+            </div>
+
+
+            <!--   basic information     -->
+            <div class="row head">
+              <div class="head_emp_reg">
+                <span style="color:#eee;"><i class="fas fa-1x fa-address-card"></i></span>
+              </div>
+              <p class="toggle-btn">
+                <span class="btn btn-primary btn-md"> Edite Basic information
+                  <i class="fas fa-1x fa-angle-double-down"></i></span>
+              </p>
+            </div>
+
+
+            <div class="form-group  col-12">
+              <label>your Country</label>
+              <select id="country" name="Country" [(ngModel)]="userInfo.Country" #Country="ngModel" required class="form-control {{(Country.touched||Country.dirty) ? (Country.invalid ? 'is-invalid' : 'is-valid') :''}} ">
+                <option selected value="">Select your Country</option>
+                <option *ngFor="let item of country" value="{{item.name}}">{{item.name}}</option>
+              </select>
+              <div class="invalid-feedback">
+                <span *ngIf="Country.errors?.required">
+                  Please provide a country
+                </span>
+              </div>
+            </div>
+            <div class="form-group  col-12">
+                <label>Your name</label>
+              <input  type="text" name="userName" [(ngModel)]="userInfo.userName" #userName="ngModel" required maxlength="20"
+              class="form-control {{(userName.touched||userName.dirty) ? (userName.invalid  ? 'is-invalid' : 'is-valid') :''}}   "  placeholder="your name" >
+              <div class="invalid-feedback">
+                    <span *ngIf="userName.errors?.required">
+                            Please provide your Name
+                    </span>
+                    <span *ngIf="userName.errors?.maxlength">
+                           larger than 20 character
+                    </span> 
+            </div>             
+            </div>
+
+            <div class="form-group  col-12">
+              <label>Salary required</label>
+              <input name="salary" #salary="ngModel" [(ngModel)]="userInfo.salary" required type="number" pattern="[1-9][0-9]*"
+                class="form-control {{(salary.touched || salary.dirty) ? (salary.invalid ? 'is-invalid' : 'is-valid' ): ''}}    "
+                placeholder="Salary required">
+              <div class="invalid-feedback">
+                <span *ngIf="salary.errors?.required">
+                  Please provide a Salary required
+                </span>
+                <span *ngIf="salary.errors?.pattern">
+                  * Enter correct number
+                </span>
+              </div>
+            </div>
+            <div class="form-group  col-12">
+              <label>Curriculum Vitae </label>
+              <textarea name="Bio" #Bio="ngModel" [(ngModel)]="userInfo.Bio" required minlength="20" maxlength="400"
+                cols="30" rows="10" class="form-control {{(Bio.touched || Bio.dirty) ? (Bio.invalid ? 'is-invalid' : 'is-valid' ): ''}}"></textarea>
+              <div class="invalid-feedback">
+                <span *ngIf="Bio.errors?.required">
+                  Please provide a BIO
+                </span>
+                <span *ngIf="Bio.errors?.minlength">
+                  less than 20 characters
+                </span>
+                <span *ngIf="Bio.errors?.maxlength">
+                  more than 400 characters
+                </span>
+              </div>
+            </div>
+
+
+            <div class="row" style="margin:50px 0 20px 0;">
+              <div class="col-6">
+                <input type="submit" [disabled]="frm.invalid||!frm.touched " class="btn btn-md btn-block btn-success"
+                  name="contiue" value="Save" id="btn-sub">
+              </div>
+              <div class="col-6">
+                <a class="btn btn-md btn-block btn-info" [routerLink]="['/Seeker/Jobs']">Back</a>
+              </div>
+            </div>
+          </form>
+
+
+          <!--modal for reset password-->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Change your password </h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="content">
+                    <div class="form-group row" [hidden]="checked===true">
+                      <div class="col-8 col-md-10">
+                        <input type="password" name="oldPasswoed" ngModel #oldPasswoed="ngModel" minlength="6" required
+                          class="form-control {{(oldPasswoed.touched||oldPasswoed.dirty) ? (oldPasswoed.invalid  ? 'is-invalid' : 'is-valid') :''}}   "
+                          placeholder="please enter old password">
+                        <div class="invalid-feedback">
+                          <span *ngIf="oldPasswoed.errors?.minlength">
+                            password is less than 6 character
+                          </span>
+                        </div>
+                      </div>
+                      <div class="col-2">
+                        <button [disabled]="oldPasswoed.invalid" (click)="checkpassword(oldPasswoed.value)" class="btn  btn-success">Ok</button>
+                      </div>
+                    </div>
+                    <form [hidden]="checked===false" #frm2="ngForm" ngSubmit="savePassword()" class="form-Emplyer">
+                      <div class="form-group  col-12">
+                        <input type="password" name="password" ngModel #password="ngModel" required minlength="6" class="form-control {{(password.touched||confirm.dirty) ? (password.invalid ? 'is-invalid' : 'is-valid') :''}}"
+                          placeholder="Paswword">
+
+                        <div class="invalid-feedback">
+                          <span *ngIf="password.errors?.required">
+                            Please provide a password
+                          </span>
+                          <span *ngIf="password.errors?.minlength">
+                            password is less than 6 character
+                          </span>
+                        </div>
+                      </div>
+                      <div class="form-group  col-12">
+                        <input type="password" name="confirm" required ngModel #confirm="ngModel" class="form-control {{(confirm.touched||confirm.dirty) ? ((confirm.invalid || password.value!=confirm.value) ? 'is-invalid' : 'is-valid') :''}}  "
+                          placeholder="Confirm Password">
+                        <div class="invalid-feedback">
+                          <span *ngIf="confirm.errors?.required">
+                            Please provide a confirm password
+                          </span>
+                          <span *ngIf="password.value!=confirm.value">
+                            Please type the same password
+                          </span>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" (click)="resetPassword(password.value)" [disabled]="frm2.invalid || password.value!=confirm.value "
+                          class="btn btn-primary">
+                          save Change </button>
+                      </div>
+                    </form>
+                  </div>
+                  <div style="height: 44px;
+                                    text-align: center;
+                                    padding: 10px;
+                                    display: none;"
+                    class="alert alert-success">
+                    <p>Done! password is changed</p>
+                  </div>
+                </div>
+
+              </div>
+
+
+            </div>
+          </div>
+          <!-- end modal-->
+        </div>
+
+      </div>
+    </div>
+
+  </ng-container>
+  <ng-template #elseTemplate>
+    <div class="lds-ripple">
+      <div></div>
+      <div></div>
+    </div>
+  </ng-template>
+
+</div>

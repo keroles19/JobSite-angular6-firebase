@@ -1,0 +1,58 @@
+
+ <!--    star browse by jobs       -->
+ <ng-container *ngIf="jobs.length > 0; else elseTemplate">
+    <div class="container"> 
+        <!-- slide  -->
+      <div class="row">
+      <div class="col-md-12 col-12 headerJobs">
+        <h1>{{fName}}</h1>
+         <span class="h5">"{{jobs.length}}" jobs</span>
+        </div>
+      </div>
+      </div>
+      <div class="container-fuluid">
+      <div class="items">
+        <div class="row">
+            <div class="col-lg-3 col-10 jobs-items " *ngFor="let item of jobs" >
+              <div class="header-jobs" >
+                    <span>{{item.jobName}}</span>
+                    <hr>
+                    </div>
+                <div class="content">
+                    <p><span class="h6">number of employee :  </span>{{item.employeeR}}</p>
+                    <div class="footer">
+                    <p><span class="h6">Category : </span> {{item.catig}} </p>
+                    <p><span class="h6">job details : </span>{{item.jobDetails.substring(0,20)}}.....</p>
+                    </div>
+                   <a
+                   [routerLink]="['/Seeker/jobDetails']"[queryParams]="{jobId:item.$key,companyId:item.userId}"    
+                   class="btn btn-outline-primary btn-block more">More details</a>
+                </div>
+          </div>  
+        </div>
+        </div>
+      </div>
+      
+ </ng-container>
+ <ng-template #elseTemplate>
+      <ng-container *ngIf="status != true; else elseTemplate">
+        <div class="lds-ripple"><div></div><div></div></div>
+      </ng-container>
+      <ng-template #elseTemplate>
+        <div class="container">
+          <div class="notFound">
+        <img src="../../assets/images/Result.svg" alt="not fount " id="imagenotFound" title="Not Found Page" >
+        </div>
+         <span style="    display: block;
+         margin-left: 39%;
+         font-family: 'Times New Roman', Times, serif;
+         font-size: large;
+         color: #0a1861;"> No Jobs in  this Field  <a href="Seeker/Jobs">Back To all jobs</a></span>
+        </div>
+      </ng-template>
+      
+ </ng-template>
+ 
+ 
+
+

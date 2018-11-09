@@ -1,0 +1,69 @@
+
+.emp
+{
+    background: #fff;
+    margin-top: 130px;
+}
+   .emp .head p{
+
+       margin-top:5px;
+    }
+
+
+
+
+
+
+
+.Add-jobs {
+    background-color: #2c4d60;
+    height: 203px;
+    color: #ffffff;
+    margin-top: 61px;
+    border-radius: 9px;
+
+       
+   }
+   .register p {
+  
+    font-family: -webkit-body;
+    font-size: 24px;
+    text-align: center;
+    padding: 24px 0 0 28px;
+
+
+   }
+.main-info {
+   
+     border: 1px #edeeef solid;
+     padding-top:12px;
+     border-radius: 9px;
+     background-color: #fff;
+     margin-top:-40px;
+     
+    
+}
+
+.main-info .head {
+    
+    color: #000;
+    margin-left: 1%;
+    font-size: 23px;
+    font-weight: 400;
+    font-family: -webkit-body
+   
+} 
+
+
+
+
+@media (max-width:1199px){
+  
+
+    .main-info{
+
+         margin-left:25px;
+         
+    }
+
+}

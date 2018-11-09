@@ -1,0 +1,73 @@
+<!-- <div class="container login">
+<form>
+    <div class="form-group">
+        <div class="text-center mb-4">
+            <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+          </div>
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" name="Email" [(ngModel)]="loginInfo.Email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" name="password" [(ngModel)]="loginInfo.Password" id="exampleInputPassword1" placeholder="Password">
+    </div>
+    
+    <button type="submit" class="btn btn-primary" (click)="Login()">Login</button>
+  </form>
+</div> -->
+
+
+
+
+
+
+<div class="container">
+    <div class="row  justify-content-sm-center ">
+        <div class="col-lg-5 col-12 login">
+            Log In
+        </div>
+    </div>
+    <div class="row justify-content-sm-center">
+        <div class="col-lg-5 col-12 log" >
+            <form #frm="ngForm">
+             <div class="form-group">
+                  <label class="h5">User Name</label>
+                  <input type="email" class="form-control" name="Email" [(ngModel)]="loginInfo.Email" #userEmail="ngModel" required pattern="^([0-9]{9})|([A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3})$" placeholder="Your Email"
+                  class="form-control {{(userEmail.touched||userEmail.dirty) ? (userEmail.invalid  ? 'is-invalid' : 'is-valid') :''}}   ">
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                  <div class="invalid-feedback">
+                        <span *ngIf="userEmail.errors?.required">
+                                Please provide an Email
+                        </span>
+                        <span *ngIf="userEmail.errors?.pattern">
+                               Email isn't correct 
+                        </span> 
+                </div>      
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1" class="h5">Password</label>
+                    <input type="password" class="form-control" name="password" [(ngModel)]="loginInfo.Password" #password="ngModel" required minlength="6" 
+                    class="form-control {{(password.touched) ? (password.invalid ? 'is-invalid' : 'is-valid') :''}}" placeholder="Your Password">
+                    <div class="invalid-feedback">
+                            <span *ngIf="password.errors?.required">
+                                    Please provide a  password
+                            </span> 
+                            <span *ngIf="password.errors?.minlength">
+                                     password is less than 6 character
+                            </span> 
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-block btn-danger "  id= "login"(click)="Login()">Log In </button>
+                <!-- <a href="~/Account/ForgetPassword"  class="nav-link">forget password ?</a> -->
+               - <div class="or-hr">
+                    <span class="h6">OR</span>
+                </div>
+                <div class="create">
+                    <a [routerLink]="['/Seeker/register']" class="btn  btn-success " id="show">register as Seeker</a>
+                    <a [routerLink]="['/Employer/register']" style="margin-left:25px;"  class="btn   btn-success " id="show">register as a company</a>
+                </div>
+            </form>
+           
+        </div>
+    </div>
+</div>

@@ -1,0 +1,140 @@
+
+<div class="container-fuluid">
+        <div class="row register justify-content-md-center">
+            <div class="col-md-6 clo-7">
+                    <p>Are you looking for employees? Create an account and enjoy the service</p>
+            </div>
+        </div>
+    </div>
+  <div class="container">
+      <div class="row justify-content-sm-center">
+          <div class="col-lg-10 col-11 main-info emp  ">
+         <form #frm="ngForm" (ngSubmit)="Register(frm)" class="form-Emplyer" >
+              
+                               <!--   login info     -->          
+              <div class="row head">
+                    <div class="head_emp_reg">
+                        <span style="color:#eee;">1</span>
+                    </div>
+                 <p>Login information</p>
+                </div>
+              <div class="form-group  col-12">
+                  <input  type="email" name="userEmail" [(ngModel)]="employer.userEmail" #userEmail="ngModel" required pattern="^([0-9]{9})|([A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3})$" 
+                  class="form-control {{(userEmail.touched||userEmail.dirty) ? (userEmail.invalid  ? 'is-invalid' : 'is-valid') :''}}   "  placeholder="Email" >
+                  <div class="invalid-feedback">
+                        <span *ngIf="userEmail.errors?.required">
+                                Please provide an Email
+                        </span>
+                        <span *ngIf="userEmail.errors?.pattern">
+                               Email isn't correct 
+                        </span> 
+                </div>             
+                </div>
+              
+ 
+              <div class="form-group  col-12">
+                   <input type="password" name="password"  [(ngModel)]="employer.password" #password="ngModel" required minlength="6" 
+                    class="form-control {{(password.touched||confirm.dirty) ? (password.invalid ? 'is-invalid' : 'is-valid') :''}}" placeholder="Paswword">
+             
+                    <div class="invalid-feedback">
+                            <span *ngIf="password.errors?.required">
+                                    Please provide a  password
+                            </span> 
+                            <span *ngIf="password.errors?.minlength">
+                                     password is less than 6 character
+                            </span> 
+                    </div>
+                </div>
+
+
+             <div class="form-group  col-12">
+                    <input type="password"  name="confirm" required  ngModel #confirm="ngModel"
+                     class="form-control {{(confirm.touched||confirm.dirty) ? ((confirm.invalid || password.value!=confirm.value) ? 'is-invalid' : 'is-valid') :''}}  " placeholder="Confirm Password">
+                     <div class="invalid-feedback">
+                            <span *ngIf="confirm.errors?.required">
+                                    Please provide a confirm password
+                            </span> 
+                            <span *ngIf="password.value!=confirm.value">
+                                    Please type the same password 
+                            </span>
+                    </div>
+                    </div>
+                                    <!--   basic information     -->
+                <div class="row head">
+                    <div class="head_emp_reg">
+                        <span style="color:#eee;">2</span>
+                    </div>
+                 <p>Basic Information For Your Company</p>
+                </div>
+              <div class="form-group  col-12">
+                  <input type="text" name="companyName" [(ngModel)]="employer.companyName" #companyName="ngModel"  required 
+                   class="form-control {{(companyName.touched||companyName.dirty) ? (companyName.invalid ? 'is-invalid' : 'is-valid') :''}}"
+                    placeholder="Name Of Company" >
+                    <div class="invalid-feedback">
+                            <span *ngIf="companyName.errors?.required">
+                                    Please provide a name of company
+                            </span> 
+                    </div>
+              </div>
+
+              <div class="form-group  col-12">
+                   <select id="country" name="Country" [(ngModel)]="employer.Country"  #Country="ngModel" required 
+                   class="form-control {{(Country.touched||Country.dirty) ? (Country.invalid ? 'is-invalid' : 'is-valid') :''}} ">
+                   <option selected value="">Select your Country</option>   
+                   <option *ngFor="let item of country" value="{{item.name}}">{{item.name}}</option> 
+                   </select>
+                   <div class="invalid-feedback">
+                        <span *ngIf="Country.errors?.required">
+                                Please provide a  country
+                        </span> 
+                </div>
+             </div>
+
+              <div class="form-group  col-12">
+                <input type="url" name="webSite" [(ngModel)]="employer.webSite" #webSite="ngModel" class="form-control" placeholder="Web site for Company">
+              </div>
+                <div class="form-group  col-12">
+             <input type="url" name="facbookGroub" [(ngModel)]="employer.facbookGroub" #facbookGroub="ngModel" class="form-control" placeholder="Facebook Account or Groub">
+              </div>
+                                 <!--   contact information     -->
+               <div class="row head">
+                   <div class="head_emp_reg">
+                       <span style="color:#eee;">3</span>
+                   </div>
+                   <p>Contact details and Company Manager</p>
+                 </div>
+               <div class="form-group  col-12">
+                  <input type="text" name="Manager" [(ngModel)]="employer.Manager" #Manager="ngModel" required
+                   class="form-control   {{(Manager.touched||Manager.dirty) ? (Manager.invalid ? 'is-invalid' : 'is-valid') :''}}   " placeholder="Name of Administrator">
+             
+                   <div class="invalid-feedback">
+                        <span *ngIf="Manager.errors?.required">
+                                Please provide a  name of Administrator
+                        </span> 
+                        </div>
+                </div>
+               
+            
+               <div class="form-group  col-12">
+                    <input type="tel" name="phone" [(ngModel)]="employer.phone" #phone="ngModel" pattern="[0-9][0-9]*" maxlength="11"
+                     class="form-control {{(phone.touched||phone.dirty) ? (phone.invalid ? 'is-invalid' : 'is-valid') :''}}  " placeholder="Phone number">
+           
+                     <div class="phone-feedback">
+                        <span *ngIf="phone.errors?.pattern">
+                                Please provide a  correct number
+                        </span> 
+                        <span *ngIf="phone.errors?.maxlength">
+                           more than 11 number
+                    </span> 
+                        </div>
+              
+              
+                    </div>
+                  <input type="submit" [disabled]="frm.invalid || password.value!=confirm.value" class="btn btn-block btn-success" name="contiue" value="Sign Up" id="save" style="margin:50px 0 20px 0;">
+                </form>  
+          </div>
+      </div>
+
+
+  </div>
+

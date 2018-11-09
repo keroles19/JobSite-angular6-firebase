@@ -1,0 +1,34 @@
+
+<div class="container-fuluid">
+    <div class="items">
+      <ng-container *ngIf="jobs.length > 0; else elseTemplate">
+           <div class="row">
+        <div class="col-lg-3 col-10 jobs-items " *ngFor="let item of jobs" >
+          <div class="header-jobs" >
+                <span>{{item.jobName}}</span>
+                <hr>
+                </div>
+            <div class="content">
+                <p><span class="h6">number of employee :  </span>{{item.employeeR}}</p>
+                <div class="footer">
+                <p><span class="h6">Category : </span> {{item.catig}} </p>
+                <p><span class="h6">job details : </span>{{item.jobDetails.substring(0,20)}}.....</p>
+                </div>
+               <a
+               [routerLink]="['/Seeker/jobDetails']"[queryParams]="{jobId:item.$key,companyId:item.userId}"    
+               class="btn btn-outline-primary btn-block">More details</a>
+            </div>
+      </div>  
+    </div>
+      </ng-container>
+      <ng-template #elseTemplate>
+          <!-- <div class="row justify-content-center">
+              <div class="my-job col-md-5 col-10 justify-content-center">
+                <img src="../assets/images/user-demo.png"> <br>
+                <small>No jobs yet</small>
+              </div>
+            </div> -->
+<div class="element-animation card"></div>
+      </ng-template>
+        </div>
+    </div>

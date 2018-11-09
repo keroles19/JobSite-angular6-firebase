@@ -1,0 +1,381 @@
+
+ .one {
+    text-align: center;
+    margin-top: -84px;
+}
+
+ 
+.one .lds-css , .one img{ 
+    border: 2px solid #f9f9f9;
+    border-radius: 50%;
+    height: 109px;
+    width: 110px;
+    display: inline-block;
+
+   
+}
+/* .two {
+    margin-left: -71px;
+     color:#fff;
+    position: relative;
+    top: 5px;
+} */
+.inp-photo{
+    margin-top: -55px;
+    height: 56px;
+    text-align: center;
+    display: inherit;
+    padding-right: 74px;
+    border-radius: 51%;
+    color: #571dde;
+}
+.inp-photo .two
+{
+    cursor: pointer;
+}
+
+
+.head_emp_reg {
+    margin: 5px 0px 0px -51px;
+    border-radius: 50%;
+    background-color: #0092fb;
+    width: 50px;
+    height: 50px;
+    border: 3px solid #fff;
+    text-align: center;
+    margin-right: 30px;
+    padding: 5px;
+
+}
+
+.save{
+
+    margin-top: -17px;
+    height: 56px;
+    text-align: center;
+
+    
+}
+.save .btn-save-pic{
+    display: none;
+}
+
+label {
+font-weight: bold;
+}
+@media (max-width: 1199px)
+{
+.head_emp_reg[_ngcontent-c2] {
+    margin-right: 30px;
+}
+}
+
+.emp
+{
+    background: #fff;
+    margin-top: 130px;
+}
+   .emp .head p{
+
+       margin-top:5px;
+    }
+.toggle-btn .btn-md{
+   
+    font-size: large;
+
+}
+
+
+
+
+
+
+.register {
+    background-color: #2c4d60;
+    height: 203px;
+    color: #ffffff;
+    margin-top: 61px;
+    border-radius: 9px;
+
+       
+   }
+   .register p {
+  
+    font-family: -webkit-body;
+    font-size: 24px;
+    text-align: center;
+    padding: 24px 0 0 28px;
+
+
+   }
+.main-info {
+   
+    border: 1px #2c4d6047 solid;
+    padding-top: 11px;
+    border-radius: 16px;
+    background-color: #f3f3f3fc;
+    margin-top: -40px;
+   
+    
+}
+
+.main-info .head {
+    
+    color: #000;
+    margin-left: 1%;
+    font-size: 23px;
+    font-weight: 400;
+    font-family: -webkit-body
+   
+} 
+
+.chooce
+{
+    text-align: center;
+    
+}
+
+    /* media  */
+
+@media (max-width:1199px){
+  
+
+    .main-info{
+
+         margin-left:25px;
+          /*height:500px;*/
+
+    }
+    .emp .head p{
+
+        font-size:large;
+        margin-top:10px;
+    }
+   .head_emp_reg{
+
+       margin-right:3px;
+   } 
+
+}
+
+
+
+
+/* animation   
+
+
+
+@keyframes lds-eclipse {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    50% {
+      -webkit-transform: rotate(180deg);
+      transform: rotate(180deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @-webkit-keyframes lds-eclipse {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    50% {
+      -webkit-transform: rotate(180deg);
+      transform: rotate(180deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  .lds-eclipse {
+    position: relative;
+  }
+  .lds-eclipse div {
+    position: absolute;
+
+    animation: lds-eclipse 1.4s linear infinite;
+    width: 160px;
+    height: 160px;
+    top: 33px;
+    left: 33px;
+    border-radius: 50%;
+    box-shadow: 0 4px 0 0 #1d07bf;
+    -webkit-transform-origin: 80px 82px;
+    transform-origin: 80px 82px;
+
+  }
+  .lds-eclipse {
+    width: 89px !important;
+    height: 89px !important;
+    -webkit-transform: translate(-44.5px, -44.5px) scale(0.445) translate(44.5px, 44.5px);
+    transform: translate(-44.5px, -44.5px) scale(0.445) translate(44.5px, 44.5px);
+  } */
+  @keyframes lds-flickr-opacity {
+    0% {
+      -webkit-transform: translate(0 0);
+      transform: translate(0 0);
+      opacity: 1;
+    }
+    49.99% {
+      opacity: 1;
+      -webkit-transform: translate(80px, 0);
+      transform: translate(80px, 0);
+    }
+    50% {
+      opacity: 0;
+      -webkit-transform: translate(80px, 0);
+      transform: translate(80px, 0);
+    }
+    100% {
+      opacity: 0;
+      -webkit-transform: translate(0, 0);
+      transform: translate(0, 0);
+    }
+  }
+  @-webkit-keyframes lds-flickr-opacity {
+    0% {
+      -webkit-transform: translate(0 0);
+      transform: translate(0 0);
+      opacity: 1;
+    }
+    49.99% {
+      opacity: 1;
+      -webkit-transform: translate(80px, 0);
+      transform: translate(80px, 0);
+    }
+    50% {
+      opacity: 0;
+      -webkit-transform: translate(80px, 0);
+      transform: translate(80px, 0);
+    }
+    100% {
+      opacity: 0;
+      -webkit-transform: translate(0, 0);
+      transform: translate(0, 0);
+    }
+  }
+  @keyframes lds-flickr {
+    0% {
+      -webkit-transform: translate(0, 0);
+      transform: translate(0, 0);
+    }
+    50% {
+      -webkit-transform: translate(80px, 0);
+      transform: translate(80px, 0);
+    }
+    100% {
+      -webkit-transform: translate(0, 0);
+      transform: translate(0, 0);
+    }
+  }
+  @-webkit-keyframes lds-flickr {
+    0% {
+      -webkit-transform: translate(0, 0);
+      transform: translate(0, 0);
+    }
+    50% {
+      -webkit-transform: translate(80px, 0);
+      transform: translate(80px, 0);
+    }
+    100% {
+      -webkit-transform: translate(0, 0);
+      transform: translate(0, 0);
+    }
+  }
+  .lds-flickr {
+    position: relative;
+  }
+  .lds-flickr div {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    top: 90px;
+    left: 49px
+  }
+  .lds-flickr div:nth-child(1) {
+    background: #ddec01;
+    -webkit-animation: lds-flickr 1s linear infinite;
+    animation: lds-flickr 1s linear infinite;
+    -webkit-animation-delay: -0.5s;
+    animation-delay: -0.5s;
+  }
+  .lds-flickr div:nth-child(2) {
+    background: #f00e0e;
+    -webkit-animation: lds-flickr 1s linear infinite;
+    animation: lds-flickr 1s linear infinite;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+  }
+  .lds-flickr div:nth-child(3) {
+    background: #ddec00;
+    -webkit-animation: lds-flickr-opacity 1s linear infinite;
+    animation: lds-flickr-opacity 1s linear infinite;
+    -webkit-animation-delay: -0.5s;
+    animation-delay: -0.5s;
+  }
+  .lds-flickr {
+    width: 84px !important;
+    height: 84px !important;
+    -webkit-transform: translate(-42px, -42px) scale(0.42) translate(42px, 42px);
+    transform: translate(-42px, -42px) scale(0.42) translate(42px, 42px);
+  }
+    
+
+
+  
+
+.lds-ripple {
+  display: block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+  margin: auto auto;
+  margin-top: 273px;
+}
+.lds-ripple div {
+  position: absolute;
+  border: 4px solid rgb(255, 0, 0);
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.lds-ripple div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+@keyframes lds-ripple {
+  0% {
+    top: 28px;
+    left: 28px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: -1px;
+    left: -1px;
+    width: 58px;
+    height: 58px;
+    opacity: 0;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

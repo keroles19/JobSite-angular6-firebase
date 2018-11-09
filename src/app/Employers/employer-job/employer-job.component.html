@@ -1,0 +1,129 @@
+<div class="container-fuluid">
+  <div class="items">
+    <ng-container *ngIf="jobs.length > 0; else elseTemplate">
+         <div class="row">
+      <div class="col-lg-3 col-10 jobs-items " *ngFor="let item of jobs" >
+         
+        <div class="header-jobs" >
+              <span>{{item.jobName}}</span>
+              <hr>
+              </div>
+          <div class="content">
+              <p><span class="h6">number of employee :  </span>{{item.employeeR}}</p>
+              <div class="footer">
+              <p><span class="h6">Category : </span> {{item.catig}} </p>
+              <p><span class="h6">job details : </span>{{item.jobDetails.substring(0,20)}}.....</p>
+              </div>
+             <button type="button" (click)="TypeEdite(item.$key)" data-toggle="modal" data-target="#exampleModalLong" class="btn btn-outline-primary btn-block">Edite</button>
+             <button type="button" (click)="delete(item.$key)" class="btn btn-outline-danger btn-block">Delet</button>
+
+          </div>
+    </div>  
+  </div>
+    </ng-container>
+    <ng-template #elseTemplate>
+        <ng-container *ngIf="status===true; else elseTemplate2">
+            <div class="row justify-content-center">
+                <div class="my-job col-md-5 col-10 justify-content-center">
+                  <img src="../assets/images/user-demo.png"> <br>
+                  <small>You don't have  any jobs yet  A list of your jobs  will appear here <a [routerLink]="['/Employer/Add-Job']">Create new job</a> </small>
+                </div>
+              </div>
+        </ng-container>
+        <ng-template #elseTemplate2>
+            <div class="lds-ripple"><div></div><div></div></div>
+        </ng-template>
+        
+    </ng-template>
+    
+
+      </div>
+  
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Edite job</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+
+        <div class="modal-body">
+          <form #frm="ngForm">
+            <div class="form-group row">
+              <label for="inputEmail3" class="col-sm-2 col-form-label">Name of job</label>
+              <div class="col-sm-10">
+                <input name="jobName" #jobName="ngModel" [(ngModel)]="dataJob.jobName" required max="20" type="text" class="form-control {{(jobName.touched || jobName.dirty) ? (jobName.invalid ? 'is-invalid' : 'is-valid' ): ''}} "
+                  id="inputEmail3" placeholder="name of job">
+                <div class="invalid-feedback">
+                  <span *ngIf="jobName.errors?.required">
+                    Please provide Name of job
+                  </span>
+                  <span *ngIf="jobName.errors?.max">
+                    more than '20' characters
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="employerR" class="col-sm-2 col-form-label">Employees R</label>
+              <div class="col-sm-10">
+                <input name="employeeR" #employeeR="ngModel" [(ngModel)]="dataJob.employeeR" required type="number" pattern="[1-9][0-9]*" class="form-control {{(employeeR.touched || employeeR.dirty) ? (employeeR.invalid ? 'is-invalid' : 'is-valid' ): ''}}    "
+                  placeholder="number of employees required">
+                <div class="invalid-feedback">
+                  <span *ngIf="employeeR.errors?.required">
+                    Please provide number of employees eequired
+                  </span>
+                  <span *ngIf="employeeR.errors?.pattern">
+                    * Enter correct number
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            
+            <div class="form-group row">
+              <label for="inputPassword3" class="col-sm-2 col-form-label">Category</label>
+              <div class="col-sm-10">
+                <select name="catig" [(ngModel)]="dataJob.catig" #catig="ngModel" required class="custom-select {{(catig.touched || catig.dirty) ? ((catig.invalid) ? 'is-invalid' : 'is-valid' ): ''}}">
+                  <option selected value="">select job Category</option>
+                  <option *ngFor="let item of fileds" value="{{item.name}}">{{item.name}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="textareajobdetails"  class="col-sm-2 col-form-label">Job details and Requirements</label>
+              <div class="col-sm-10">
+                <textarea name="jobDetails" #jobDetails="ngModel" [(ngModel)]="dataJob.jobDetails"required minlength="20" maxlength="400" cols="30"
+                  rows="10" class="form-control {{(jobDetails.touched || jobDetails.dirty) ? (jobDetails.invalid ? 'is-invalid' : 'is-valid' ): ''}}"></textarea>
+                <div class="invalid-feedback">
+                  <span *ngIf="jobDetails.errors?.required">
+                    Please provide deatails and equirements for this job
+                  </span>
+                  <span *ngIf="jobDetails.errors?.minlength">
+                    less than 20 characters
+                  </span>
+                  <span *ngIf="jobDetails.errors?.maxlength">
+                    more than 400 characters
+                  </span>
+                </div>
+
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" #closeAddExpenseModal>Close</button>
+          <button type="button" class="btn btn-primary" [disabled]="frm.invalid" id="save" (click)="SaveChange(frm)">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--End Modal-->
+</div>

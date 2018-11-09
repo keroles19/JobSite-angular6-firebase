@@ -1,0 +1,13 @@
+/* body
+{
+     background-image: url("../src/app/assets/electronics-furniture-hands-953216.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 750px; 
+    
+} */
+body{
+    
+    background-color: #e4e3e3b3;
+    min-width:600px;
+}
