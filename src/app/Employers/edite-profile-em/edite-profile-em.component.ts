@@ -16,7 +16,7 @@ import { Employers } from '../Employer.interface';
 export class EditeProfileEmComponent implements OnInit {
 
   country :object[];
-  userInfo:Employers;
+  userInfo:any;
   length = 0 ;
   uId:string;
   checked: boolean = false;
@@ -87,7 +87,7 @@ export class EditeProfileEmComponent implements OnInit {
       this.uId = this.fire.auth.currentUser.uid;
       this.service.getUserById(this.uId).subscribe(arg =>{this.userInfo = {...arg};
         this.length  =   Object.keys(this.userInfo).length;
-        this.fileService.getImageProfile(arg.imageProfile).then((url)=>{
+        this.fileService.getImageProfile(this.userInfo.imageProfile).then((url)=>{
           this.imageUrl = url;
           this.status = true;
      })

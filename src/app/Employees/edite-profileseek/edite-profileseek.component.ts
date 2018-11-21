@@ -15,7 +15,7 @@ import { UploadFilesService } from 'src/app/services/upload-files.service';
 
 export class EditeProfileseekComponent implements OnInit {
   country :object[];
-  userInfo:seeker;
+  userInfo:any;
   lenght=0;
   uId:string;
   checked: boolean = false;
@@ -38,7 +38,7 @@ export class EditeProfileseekComponent implements OnInit {
       this.uId = this.fire.auth.currentUser.uid;
       this.service.getUserById(this.uId).subscribe(arg =>{this.userInfo = {...arg};
         this.lenght  =   Object.keys(this.userInfo).length;
-        this.fileService.getImageProfile(arg.imageProfile).then((url)=>{
+        this.fileService.getImageProfile(this.userInfo.imageProfile).then((url)=>{ //arg.imageProfile
           this.imageUrl = url;
           this.status = true;
      })

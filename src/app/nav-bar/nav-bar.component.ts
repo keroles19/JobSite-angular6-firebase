@@ -22,7 +22,7 @@ export class NavBarComponent implements OnInit {
 
   country: object[];
   fields: object[];
-
+  dataInfo:any;
 
 
   items: AngularFireList<any>;
@@ -63,7 +63,8 @@ if(this.isLogined!=null)
       // })
 
       this.service.getUserById(uId).subscribe(user=>{
-        this.fileService.getImageProfile(user.imageProfile).then((url)=>{
+          this.dataInfo = user;
+        this.fileService.getImageProfile(this.dataInfo.imageProfile).then((url)=>{
           this.imageUrl = url;
       })
       })

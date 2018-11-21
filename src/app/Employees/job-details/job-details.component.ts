@@ -16,6 +16,7 @@ export class JobDetailsComponent implements OnInit {
   details={};
   // notExists:boolean=true;
   length=0;
+  dataInfo:any;
   constructor(private userService:UsersService,private fire:AngularFireAuth ,private router:Router ,private route:ActivatedRoute , private serveice:OperationsService) { }
 
   ngOnInit() {
@@ -67,7 +68,8 @@ export class JobDetailsComponent implements OnInit {
       var name;
          $('#applay').attr('disabled','disabled');
       this.userService.getUserById(this.fire.auth.currentUser.uid).subscribe((res=>{
-        name = res.userName;
+        this.dataInfo = res;
+        name = this.dataInfo.userName;
         this.serveice.applyJob(this.jobKey,this.fire.auth.currentUser.uid,name);
       }))
      

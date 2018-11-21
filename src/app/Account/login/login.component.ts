@@ -16,8 +16,9 @@ export class LoginComponent implements OnInit {
     Email :'',
     Password :''
   };
-   
-   
+  
+  dataInfo:any;
+
   constructor(private fir:AngularFireAuth,private service:UsersService,private router:Router , private flashMessage:FlashMessagesService) { 
   }
 
@@ -28,29 +29,10 @@ export class LoginComponent implements OnInit {
     $('#login').attr('disabled','disabled');
     this.fir.auth.signInWithEmailAndPassword(this.loginInfo.Email,this.loginInfo.Password).then(
       user=>{
-        // user.user.uid
-        // localStorage.setItem('isLogined','true');
-        // location.reload(); 
-        // this.router.navigate(['/jobs/we'])
         this.service.getUserById(user.user.uid).subscribe(data=>{
-          // if(data.AccountType === "Seeker")
-          // {
-          //   console.log('ddd');
-           
-          // }
-          // else
-          // {
-          //   console.log('ss');
-          //   //this.router.navigate(['/Employer'])
-          // } 
-          localStorage.setItem('AccountType',data.AccountType);
-          location.reload();
-        //  switch(data.AccountType)
-        //  {
-        //    case"Seeker": this.router.navigate(['/seeker/Jobs']);  break;
-        //    case"Employer":this.router.navigate(['/Employer']);break;
-        //    default :this.fir.auth.signOut; 
-        //  }
+              this.dataInfo = data;  
+              localStorage.setItem('AccountType',this.dataInfo.AccountType);
+              location.reload(); 
          })
       }
     ).catch(error=>{
