@@ -49,18 +49,6 @@ employer:Employers={
   }
   }
 
-  // SetdataInfo(data)
-  // {
-  //   for(let item in data)
-  //   {
-  //     if(item=="confirm")
-  //     {
-  //       continue;
-  //     }
-  //     else{
-  //     this.dataInfo[item] = data[item];
-  //     }
-  //   }
-  // }
+
 
 

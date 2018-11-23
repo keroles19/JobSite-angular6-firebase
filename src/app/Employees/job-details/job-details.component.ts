@@ -17,6 +17,7 @@ export class JobDetailsComponent implements OnInit {
   // notExists:boolean=true;
   length=0;
   dataInfo:any;
+  jobstatus:boolean;
   constructor(private userService:UsersService,private fire:AngularFireAuth ,private router:Router ,private route:ActivatedRoute , private serveice:OperationsService) { }
 
   ngOnInit() {
@@ -34,6 +35,7 @@ export class JobDetailsComponent implements OnInit {
          console.log(this.details);
         }
       */
+     this.applyStaus();
      this.length = Object.keys(this.details).length;
      if(this.length < 11)
      {
@@ -43,24 +45,24 @@ export class JobDetailsComponent implements OnInit {
      })
      
   })  
-  /*
-  
-  
-        this.userService.getUserById(this.userId).subscribe(user=>{
-          if(res.length<0)
-      {
-        this.router.navigate(['/seeker/Jobs']);
-      }
-      else{
-        console.log(this.details);
-    }
-       
-      })
-  
-  
-  */
+ 
 
     }
+     
+     
+
+     applyStaus()
+     {
+      this.serveice.applyStatus(this.jobKey , this.fire.auth.currentUser.uid).subscribe(x => {
+        if (x){
+              this.jobstatus = true;
+        }else {
+          this.jobstatus = false;
+        }
+    });
+    }
+
+
 
 
     apllyJob()
@@ -74,4 +76,7 @@ export class JobDetailsComponent implements OnInit {
       }))
      
     }
+
+
+   
   }

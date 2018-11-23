@@ -24,11 +24,6 @@ export class EditeProfileseekComponent implements OnInit {
   status = false;
   constructor(private fire:AngularFireAuth,private db:AngularFireDatabase,private fileService:UploadFilesService, private service:UsersService,private flashMessage:FlashMessagesService) { 
 
- this.fire.auth.signInWithEmailAndPassword('kerolesatef1@gmail.com','123456');
-
-
-
-
   }
 
   ngOnInit() {
@@ -47,11 +42,6 @@ export class EditeProfileseekComponent implements OnInit {
       
       
 
-      // .catch((error)=>{
-      //   // $('#image').attr('src','https://firebasestorage.googleapis.com/v0/b/final-57b26.appspot.com/o/userProfiles%2Fbusy-glassware-job-266141.jpg?alt=media&token=a2b9e6e0-bae0-49be-bf33-45fff719ba55');
-      //  this.imageUrl = 'https://firebasestorage.googleapis.com/v0/b/final-57b26.appspot.com/o/userProfiles%2Fbusy-glassware-job-266141.jpg?alt=media&token=a2b9e6e0-bae0-49be-bf33-45fff719ba55';
-      // });
-     
     },8000)
    
     
@@ -162,38 +152,9 @@ export class EditeProfileseekComponent implements OnInit {
           $('save').removeAttr('disabled')
         });
     }
-    //  else
-    // {
-    //   console.log('2' , this.imageUrl);
-    //   this.fileService.deletProfile(this.uId).then(()=>{
-    //     this.fileService.uploadFile1(this.uId,this.fileuploaded);
-    //     this.flashMessage.show('Done (: Image profile has set' , { cssClass: 'alert-warning', timeout: 2000 });
-    //   }).catch(()=>{
-    //     this.flashMessage.show('image profile  not set please  try again' , { cssClass: 'alert-warning', timeout: 2000 });
-    //   })
-    // }
+   
   }
   
-
-   
-
-
-
-  // async uploadPic() {
-  
-  //   // if (this.fileuploaded !== null) {
-  //   //   await new Promise(() => { this.uploadFiles.updateFile(this.dataInfo.logo, this.fileuploaded, 'Employer', firebase.auth().currentUser.uid); });
-  //   //   this.dataInfo.logo = this.fileuploaded.name;
-  //   // }
-  
-  
-  
-  
-  // }
-
-
-
-
 
 
 }

@@ -82,8 +82,6 @@ if(this.isLogined!=null)
   }
 }
 
-
-
   Logout() {
     this.fire.auth.signOut().then(() => {
       localStorage.removeItem('AccountType')

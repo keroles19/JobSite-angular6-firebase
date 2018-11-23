@@ -60,7 +60,6 @@ export class OperationsService {
       this.flashMessage.show('Error '+ error.message, {  timeout: '3000' });
       $('#Add').removeAttr('disabled');
     } 
-      // this.db.database.ref().child(`users/Employer/ ${value.userId} /${keyJob}/`).set(value);
     
   }
 
@@ -101,15 +100,6 @@ export class OperationsService {
     };
 
     this.db.database.ref().child(`jobs/${jobKey}/seeker/${userId}/`).set(value)
-    // this.db.database.ref().child(`/jobs/${jobKey}/seekers/${userId}`).push({
-    //   date: new Date,
-    //   seekerName: seekerName
-    // }).then(()=>{
-    //   this.flashMessage.show('Done (: you applay for this job', {  timeout: '3000' });
-    // }).catch(error=>{
-    //   this.flashMessage.show('Error'+error, {  timeout: '3000' });
-    //   $('#applay').removeAttr('disabled');
-    // })
    .then(()=>{
       this.flashMessage.show('Done you apllay for this jobs', {  timeout: '3000' });
     }).catch((error)=>{
@@ -119,6 +109,17 @@ export class OperationsService {
   }
 
 
+
+applyStatus(jobKey , uId)
+{
+  return this.db.object(`jobs/${jobKey}/seeker/${uId}/`).valueChanges();
+
+}
+
+
+
+
+  
 
 
   /*

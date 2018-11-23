@@ -57,11 +57,11 @@
         
                 </li> -->
                 <li class="nav-item dropdown" *ngIf="(isLogined === null||isLogined ==='Seeker')">
-                    <button    class="btn btn-danger btn-md dropdown-toggle by" id="navbarDropdown" role="button"
+                    <button  class="btn btn-danger btn-md dropdown-toggle by" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Browse by Fields</button>
 
-                    <div class="dropdown-menu Dropdown-menu-fields"  aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu Dropdown-menu-fields"  aria-labelledby="navbarDropdown"  >
                         <a *ngFor="let item of fields" class="dropdown-item" [routerLink]="['Seeker/jobFields/'+item.name]">{{item.name}}</a>
                     </div>
                 </li>

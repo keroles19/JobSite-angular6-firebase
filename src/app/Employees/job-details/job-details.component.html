@@ -57,8 +57,13 @@
               {{details.jobDetails}}
              </p>
         </div>
-        <div class="media text-muted pt-3">
-            <button class="btn btn-success"(click)="apllyJob()" id="applay">Apllay for Job</button>
+        <div class="media text-muted pt-3" >
+            <ng-container *ngIf="jobstatus !== true; else elseTemplate">
+                <button  class="btn btn-success"(click)="apllyJob()" id="applay" >Apllay for Job</button>
+        </ng-container>
+        <ng-template #elseTemplate>
+            <button  class="btn btn-secondery" disabled  id="applay" >you apply for this job</button>
+        </ng-template>
               <a style="margin-left: 36px;" class="btn btn-info Back"
               [routerLink]="['/Seeker']"
               >Back to List</a>

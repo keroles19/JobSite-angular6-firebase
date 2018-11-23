@@ -35,7 +35,7 @@
       
  </ng-container>
  <ng-template #elseTemplate>
-      <ng-container *ngIf="status != true; else elseTemplate">
+      <ng-container *ngIf="status !== true; else elseTemplate">
         <div class="lds-ripple"><div></div><div></div></div>
       </ng-container>
       <ng-template #elseTemplate>

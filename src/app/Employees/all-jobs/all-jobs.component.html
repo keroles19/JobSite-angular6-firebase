@@ -2,6 +2,9 @@
 <div class="container-fuluid">
     <div class="items">
       <ng-container *ngIf="jobs.length > 0; else elseTemplate">
+        <div class="header">
+          <p>All jobs</p>
+        </div>
            <div class="row">
         <div class="col-lg-3 col-10 jobs-items " *ngFor="let item of jobs" >
           <div class="header-jobs" >

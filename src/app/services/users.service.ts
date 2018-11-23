@@ -63,12 +63,6 @@ export class UsersService {
   }
 
 
-  
-  // updateDate(uid , dataValue)
-  // {
-  //   return this.db.database.ref().child(`users/${uid}/`).set(dataValue);
-  // }
-  
 
 
 
@@ -100,6 +94,12 @@ export class UsersService {
 /*
 
 
+  
+  // updateDate(uid , dataValue)
+  // {
+  //   return this.db.database.ref().child(`users/${uid}/`).set(dataValue);
+  // }
+  
 
 
   // to Register any users (employer)

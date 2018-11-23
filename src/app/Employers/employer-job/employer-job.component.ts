@@ -32,22 +32,7 @@ export class EmployerJobComponent implements OnInit {
 
   constructor(private fire: AngularFireAuth, private db: AngularFireDatabase, private service: OperationsService, public router: Router) {
 
-    this.fire.auth.signInWithEmailAndPassword('kerolesatef200@gmail.com', '123456');
-
-    /*async function delay(ms: number) {
-        return new Promise( resolve => setTimeout(resolve, ms) );
-    }
-      (async () => { 
-        // Do something before delay
-        console.log('before delay')
-    
-        await delay(20000);
-    
-        // Do something after
-        this.service.getJobs(this.fire.auth.currentUser.uid);
-        console.log('after delay')
-    })(); 
-    */
+   
   }
   ngOnInit() {
     this.service.getJobs().snapshotChanges().subscribe(actions => {
@@ -103,12 +88,3 @@ export class EmployerJobComponent implements OnInit {
 
 }
 
-/*export class itemlist {
-  $key: string;
-  jobName: string;
-  employeeR: string;
-  catig: string;
-  jobDetails: string;
-  userId: any;
-}
-*/

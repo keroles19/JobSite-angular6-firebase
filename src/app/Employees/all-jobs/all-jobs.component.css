@@ -136,7 +136,19 @@
 
  }
 
+.header
+{
+  background: #738dc1;
+  text-align: center;
+  margin-top: -34px;
+  padding: 21px;
+  border-radius: 6px;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: #fff;
+  margin-right: 42px;;
 
+}
 
 
 

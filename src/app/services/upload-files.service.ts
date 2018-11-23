@@ -42,6 +42,21 @@ uploadFile1(fileuploaded , imageName)
   
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+
 //  updateProfile(oldFile , newFile)
 //  {
 //   let path = this.storgaeRef.child(this.basePath+'/'+ oldFile)
@@ -50,17 +65,6 @@ uploadFile1(fileuploaded , imageName)
 //  }) 
   
 //  }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -115,7 +119,7 @@ uploadFile1(fileuploaded , imageName)
 
 
 
-
+*/
 
 
 
